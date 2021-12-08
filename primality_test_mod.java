@@ -1,7 +1,5 @@
 package primality_test_mod;
 
-//import java.math.*;
-
 public class primality_test_mod {
 
 	//This algorithm I came up with after looking at the formula that the AKS algorithm is based on.
