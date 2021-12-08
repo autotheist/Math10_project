@@ -5,7 +5,7 @@ public class aks_primality_test {
 	//***Note: Emily didn't write this algorithm. I just got it off the web to time it.
 	//It takes slightly longer than the primality test I did where I chose 2 for a but I think
 	//it does more. I'm not exactly sure how it works. I know it checks to see if all the 
-	//coefficients of an expanded polynomial are divisible by n. It tests all the numbers up to 63.
+	//coefficients of an expanded polynomial are divisible by n. I edited it to test all the numbers up to 63.
 
 	// Java code to check if number is prime. This
 	// program demonstrates concept behind AKS
@@ -72,10 +72,10 @@ public class aks_primality_test {
 			}			  
 			
 			long endTime = System.nanoTime();
-		    long duration = (endTime - startTime)/1000;
+		    	long duration = (endTime - startTime)/1000;
 			
 			System.out.println("\nMicroseconds: " + duration );
-		}
+		}//end driver
 	
 
 	// This code is contributed by Anant Agarwal.
