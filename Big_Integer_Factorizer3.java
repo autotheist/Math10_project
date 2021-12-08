@@ -9,7 +9,8 @@ import java.util.Collections;
  * 
  * The upper bound is O(1/2 sqrt N) or O(sqrt N). It does not test even values for divisibility. It divides
  * out all factors of 2 on the first pass if there are any. 1/2 is a constant but it does literally
- * cut the time in half which is a lot when dealing with large integers.*/
+ * cut the time in half which is a lot when dealing with large integers. This program is designed to
+ * factorize integers up to 9.2 quintillion. */
 
 public class Big_Integer_Factorizer3 {
 
@@ -21,13 +22,7 @@ public class Big_Integer_Factorizer3 {
 
 		public static void main(String[] args) {
 			
-				//The following statements will terminate the program early if the number to be factored
-			 	//is less than or equal to 3. There is no sense in allocating memory and running through the
-				//whole program since none of the variables will be used for numbers <= 3.
-			
-			 	//This algorithm is designed to factor numbers larger than 3. It will factor numbers up
-			 	//to 9.2 quintillion (9,223,372,036,854,775,807).
-			 
+							 
 			    //String numValue="30378687785843359";     	//138980701 * 218582059 - takes 6 seconds
 			    //String numValue="10000231782547849";     	//149 * 67115649547301 - takes 1/2 second
 			    //String numValue="100000231782547849";    	//2477 * 56843 * 710228359 - takes 40 milliseconds
@@ -50,7 +45,7 @@ public class Big_Integer_Factorizer3 {
 			
 				BigInteger numToCheck=new BigInteger(numValue);
 				
-				//The following if block will terminate the program early if the number to be factored
+				 //The following if block will terminate the program early if the number to be factored
 				 //is less than or equal to 3. There is no sense in allocating memory and running through the
 				 //whole program since none of it will be used for numbers <= 3.
 				
@@ -100,21 +95,22 @@ public class Big_Integer_Factorizer3 {
 	        		 	if(!numStub.mod(two).equals(zero)) { //This block only executes once all factors of 2 have been found.
 	        		 		       		 		
 	        		 	sqrtNum=numStub.sqrt();//factors have been divided out so new square root is set.
-	        		 }//end if block
+						
+	        		 	}//end if block
 	        		 	
-	        	 }//end while loop to find all factors of 2
+	        	 	}//end while loop to find all factors of 2
 	        	
 	        	/***************/
 		        /***MAIN LOOP***/
 		        /***************/
 				
-			for(i = three; i.compareTo(sqrtNum)==-1 || i.equals(sqrtNum) && !numStub.equals(one); i=i.add(two)) {
+				for(i = three; i.compareTo(sqrtNum)==-1 || i.equals(sqrtNum) && !numStub.equals(one); i=i.add(two)) {
 					
-				loopCount=loopCount.add(one);
+					loopCount=loopCount.add(one);
 										 	        	   
-		        	   //This while loop executes if i is prime and a factor of numToFactor. It will
-		        	   //stop when numStub is no longer divisible by i. 
-		        	   while(numStub.mod(i).equals(zero)) {
+		        	   	//This while loop executes if i is prime and a factor of numToFactor. It will
+		        	   	//stop when numStub is no longer divisible by i. 
+		        	  	while(numStub.mod(i).equals(zero)) {
 		        		   
 		        			 factors.add(i);
 		        			 
@@ -130,19 +126,20 @@ public class Big_Integer_Factorizer3 {
 		        			 	
 		        		}//end while loop to find all factors of i       				            				 
 		        			 		        	   
-		        	   if(numStub.equals(one)) break; //if numStub equals 1, all factors of numToFactor have been found.
+		        	   if(numStub.equals(one)) break; //if numStub equals 1, all factors of numToCheck have been found.
 					
-			}//end for loop
+				}//end for loop
 				
-			long endTime = System.nanoTime();//marks the end time of the loop
+				long endTime = System.nanoTime();//marks the end time of the loop
 				
-		        long duration = (endTime - startTime)/1000000;//gives milliseconds
+		       		long duration = (endTime - startTime)/1000000;//gives milliseconds
+			
 		        
-		        //end main algorithm. The code below just prints the findings to the console.
+		        	//end main algorithm. The code below just prints the findings to the console.
 		        
-		        if(numStub.compareTo(numToCheck)==-1 && numStub.compareTo(one)==1) factors.add(numStub);
+		        	if(numStub.compareTo(numToCheck)==-1 && numStub.compareTo(one)==1) factors.add(numStub);
 		         
-		        Collections.sort(factors);
+		        	Collections.sort(factors);
 				
 				if(factors.size()>0) {
 					
