@@ -33,19 +33,18 @@ public class Big_Integer_Factorizer3 {
 			    //String numValue="100000231782547849";    	//2477 * 56843 * 710228359 - takes 40 milliseconds
 			    //String numValue="1000000231782547849";   	//7^2 * 139 * 21599 *	6797599541 - takes 61 milliseconds
 			    //String numValue="1000000231782547847";   	//20043223 * 49892187089 - takes 1.2 seconds
-			    //String numValue="899";					//29 * 31 - takes 0 milliseconds
-			    //String numValue="127";					//prime - takes 0 milliseconds
-				//String numValue="1024";					//2^10 - takes 0 milliseconds
-			    //String numValue="121330189";				//101 * 103 * 107 * 109 - takes 0 milliseconds
-			    //String numValue="67115649547301";			//prime - takes 1/2 second
+			    //String numValue="899";			//29 * 31 - takes 0 milliseconds
+			    //String numValue="127";			//prime - takes 0 milliseconds
+			    //String numValue="1024";			//2^10 - takes 0 milliseconds
+			    //String numValue="121330189";		//101 * 103 * 107 * 109 - takes 0 milliseconds
+			    //String numValue="67115649547301";		//prime - takes 1/2 second
 			    //String numValue = "8512677386048191063"; 	//prime takes 2.5 minutes
 			    //String numValue = "8512677386048199600";  //2^4 * 3^2 * 5 * 788210869078537 - takes 1 second
 			    //String numValue="9181531581341931811"; 	//prime takes 2 minutes 50 seconds using this algorithm
-			    String numValue ="9223372036854775807"; 	//largest Big Integer in Java
-			    //7^2 * 73 * 127 * 337 * 92737 * 649657 - takes 50 milliseconds
+			    String numValue ="9223372036854775807"; 	//largest Big Integer in Java 7^2 * 73 * 127 * 337 * 92737 * 649657 - takes 50 milliseconds
 			
-				//9,181,531,581,341,931,811 seems to be the biggest prime that can be represented in Java.
-				//It takes 2 minutes and 3 seconds to determine if it's prime on my computer with a 
+			    //9,181,531,581,341,931,811 seems to be the biggest prime that can be represented in Java.
+			    //It takes 2 minutes and 3 seconds to determine if it's prime on my computer with a 
 			    //pared-down algorithm that only checks for primality.			    
 			    
 			
@@ -93,11 +92,12 @@ public class Big_Integer_Factorizer3 {
 				
 				//This while loop will remove all factors of 2 from numStub which is
 	 	  		//initialized to numToFactor so only odd numbers can be tested for divisibility.     	         	 
-	        	while(numStub.mod(two).equals(zero)) {
-	        		 numStub=numStub.divide(two);
-	        		 factors.add(two);
+	        		
+				while(numStub.mod(two).equals(zero)) {
+	        		 	numStub=numStub.divide(two);
+	        		 	factors.add(two);
 	        		 	
-	        		 if(!numStub.mod(two).equals(zero)) { //This block only executes once all factors of 2 have been found.
+	        		 	if(!numStub.mod(two).equals(zero)) { //This block only executes once all factors of 2 have been found.
 	        		 		       		 		
 	        		 	sqrtNum=numStub.sqrt();//factors have been divided out so new square root is set.
 	        		 }//end if block
@@ -108,9 +108,9 @@ public class Big_Integer_Factorizer3 {
 		        /***MAIN LOOP***/
 		        /***************/
 				
-				for(i = three; i.compareTo(sqrtNum)==-1 || i.equals(sqrtNum) && !numStub.equals(one); i=i.add(two)) {
+			for(i = three; i.compareTo(sqrtNum)==-1 || i.equals(sqrtNum) && !numStub.equals(one); i=i.add(two)) {
 					
-					loopCount=loopCount.add(one);
+				loopCount=loopCount.add(one);
 										 	        	   
 		        	   //This while loop executes if i is prime and a factor of numToFactor. It will
 		        	   //stop when numStub is no longer divisible by i. 
@@ -132,9 +132,9 @@ public class Big_Integer_Factorizer3 {
 		        			 		        	   
 		        	   if(numStub.equals(one)) break; //if numStub equals 1, all factors of numToFactor have been found.
 					
-				}//end for loop
+			}//end for loop
 				
-				long endTime = System.nanoTime();//marks the end time of the loop
+			long endTime = System.nanoTime();//marks the end time of the loop
 				
 		        long duration = (endTime - startTime)/1000000;//gives milliseconds
 		        
