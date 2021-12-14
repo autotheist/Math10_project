@@ -129,6 +129,7 @@ public class prime_bounds {
 			
 			}//end main
 	   
+		//This function counts the number of primes less than the number i passed as a parameter
 		public static double primeCount(double i) {
 			int counter = 1;//set to 1 to count 2 as a prime
 			for(int j=0; j <=((int)i-3)/2; j++) {
@@ -141,7 +142,7 @@ public class prime_bounds {
 		
 		
 		
-
+		//This function generates an array of primes using a modification of the Sieve of Eratosthenes
 		public static boolean[] generateArray(int limit) {
 			boolean[] composites = new boolean[limit];
 			//int counter=1;
@@ -165,15 +166,9 @@ public class prime_bounds {
 					composites[i]=true;
 					
 				}
-			}
+			}	
 			
 			
-			for(int i=n; i <= composites.length; i+=2) {
-				if(!composites[(i-3)/2]) { 
-					//counter++;					
-				}
-				
-			}
 			return composites;
 		}//end generateArray method
 
