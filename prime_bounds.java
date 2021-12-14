@@ -107,7 +107,15 @@ public class prime_bounds {
 			
 				
 				//This is currently a very expensive loop. This can be optimized further but I don't
-				//have time to do it before I have to turn this in.
+				//have time to do it before I have to turn this in. The purpose of this loop is 
+				//to make sure the Magi number is correct. I may find a candidate Magi number
+				//that has (magi candidate)/numToCheck primes less than it but that doesn't mean
+				//there aren't integers n larger than the magi candidate that have more than 
+				//n/numToCheck primes less than them. So I check the next 1000 numbers to 
+				//make sure the candidate magi number is the actual magi number. If there is a number
+				//n that has more than n/numToCheck primes less than it, I increase the magi number
+				//to the next multiple of numToCheck after n.
+		
 				for(double j=k+1; j<=k+1000; j++) {
 					
 					if(primeCount(j)> j/numToCheck) {
