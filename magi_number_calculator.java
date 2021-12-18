@@ -32,7 +32,7 @@ public class magi_number_calculator {
 	public final static double[] MAGI_NUMS = {
 			0,
 			0,
-			8, 			// n/2
+			8, 		// n/2
 			33, 		// n/3
 			120,  		// n/4
 			360,		// n/5
